@@ -7,7 +7,10 @@ import { usePathname } from 'next/navigation';
 import { FiSearch, FiShoppingBag, FiMenu, FiX } from 'react-icons/fi';
 import Image from 'next/image';
 
+import { BiUser } from 'react-icons/bi';
+
 const Navbar = () => {
+  const [openSearch,setOpenSearch]=useState(false)
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 const [scrolled,setScrolled]=useState(false)
@@ -79,9 +82,12 @@ useEffect(()=>{
 
       {/* Right Side Tools Utilities */}
       <div className="flex items-center gap-3 md:gap-5 order-3">
-        <button className="p-1 text-gray-800 hover:text-[#82a3c4] transition-colors flex items-center" aria-label="Search">
-          <FiSearch size={18} />
-        </button>
+        <div className="relative">
+
+      <button className="p-1 text-gray-800 hover:text-[#82a3c4] transition-colors flex items-center" aria-label="User">
+        <BiUser size={18}></BiUser>
+      </button>
+    </div>
         
         <div className="w-[1px] h-[18px] md:h-[24px] bg-gray-200"></div>
         
