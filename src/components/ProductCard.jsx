@@ -8,6 +8,7 @@ import{easeInOut, motion} from "framer-motion"
 import { useRouter } from "next/navigation";
 
 const ProductCard = ({item}) => {
+
   const router = useRouter()
   const [imgIndex,setImgIndex]=useState(0)
    const  intervalRaf= useRef(null)

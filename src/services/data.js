@@ -13,3 +13,16 @@ export const topProduct=async()=>{
     const data = await res.json();
     return data;
 }
+export const productById=async(id)=>{
+    const res =await fetch(`${process.env.SERVER_URL}/products/${id}`)
+    const data = await res.json();
+    return data;
+}
+export const relatedProduct=async(id)=>{
+   
+    const res =await fetch(`${process.env.SERVER_URL}/related-products/${id}`,{
+     cache:'no-store',    
+    })
+    const data = await res.json();
+    return data;
+}
