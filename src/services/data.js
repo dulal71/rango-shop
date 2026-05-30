@@ -1,7 +1,7 @@
 'use server'
-export const allProducts=async( page = 1,search = '', category = '',brand = '',color = '')=>{
-    console.log(brand);
-    const res=await fetch(`${process.env.SERVER_URL}/products?page=${page}&search=${search}&category=${category}&brand=${brand}&color=${color}`,{
+export const allProducts=async( page = 1,search = '', category = '',brand = '',color = '',sort = '')=>{
+    console.log(sort);
+    const res=await fetch(`${process.env.SERVER_URL}/products?page=${page}&search=${search}&category=${category}&brand=${brand}&color=${color}&sort=${sort}`,{
          cache:'no-store',
     })
     const data = await res.json()
