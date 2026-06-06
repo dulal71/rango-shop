@@ -19,7 +19,6 @@ export const productById=async(id)=>{
     return data;
 }
 export const relatedProduct=async(id)=>{
-   
     const res =await fetch(`${process.env.SERVER_URL}/related-products/${id}`,{
      cache:'no-store',    
     })

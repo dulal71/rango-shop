@@ -143,10 +143,20 @@ const Details = ({product}) => {
           </div>
 
           {/* BUTTON */}
-          <button className="mt-6 flex items-center gap-2 bg-black hover:bg-[#998345] text-white px-8 py-3 rounded-md">
+          <div className="flex items-center gap-4">
+             <button className="mt-6 flex items-center gap-2 bg-green-700 hover:bg-red-700 text-white px-8 py-3 rounded-md">
+            <CgShoppingCart />
+            Buy Now
+          </button>
+
+
+             <button className="mt-6 flex items-center gap-2 bg-black hover:bg-[#998345] text-white px-8 py-3 rounded-md">
             <CgShoppingCart />
             Add To Cart
           </button>
+
+          </div>
+         
         </div>
       </div>
 

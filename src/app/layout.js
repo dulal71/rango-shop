@@ -2,6 +2,8 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CartProvider from "@/context/cartContext";
+import CartDrawer from "@/components/CartDrawer";
 
 
 
@@ -21,11 +23,16 @@ export default function RootLayout({ children }) {
       className={`${inter.variable}  h-full antialiased`}
     >
     <body className= {`${inter.className} min-h-full flex flex-col`}>
-       <Navbar></Navbar>
+     <CartProvider>
+ <Navbar></Navbar>
+<CartDrawer></CartDrawer>
         <main className="">
  {children}
         </main>
         <Footer></Footer>
+        
+     </CartProvider>
+      
         </body>
     </html>
   );

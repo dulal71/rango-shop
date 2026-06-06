@@ -3,15 +3,16 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-// Importing specific clean, modern line icons from Feather Icons group
-import { FiSearch, FiShoppingBag, FiMenu, FiX } from 'react-icons/fi';
-import Image from 'next/image';
 
+import {  FiShoppingBag, FiMenu, FiX } from 'react-icons/fi';
+import Image from 'next/image';
 import { BiUser } from 'react-icons/bi';
+import { useCart } from '@/context/cartContext';
 
 const Navbar = () => {
-  const [openSearch,setOpenSearch]=useState(false)
+
   const pathname = usePathname();
+ const {openCart}=useCart()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 const [scrolled,setScrolled]=useState(false)
   const toggleMobileMenu = () => {
@@ -81,27 +82,31 @@ useEffect(()=>{
       </ul>
 
       {/* Right Side Tools Utilities */}
+        {/* user  */}
       <div className="flex items-center gap-3 md:gap-5 order-3">
         <div className="relative">
 
-      <button className="p-1 text-gray-800 hover:text-[#82a3c4] transition-colors flex items-center" aria-label="User">
+      <Link href={'/profile'}>
+      <button className="p-1 text-gray-800 hover:text-[#82a3c4] transition-colors flex items-center cursor-pointer" aria-label="User">
         <BiUser size={18}></BiUser>
       </button>
+      </Link>
     </div>
         
         <div className="w-[1px] h-[18px] md:h-[24px] bg-gray-200"></div>
-        
+        {/* cart */}
         <div className="relative flex items-center">
-          <button className="p-1 text-gray-800 hover:text-[#82a3c4] transition-colors flex items-center" aria-label="Cart">
+        <button
+          onClick={openCart}
+          className="p-1 text-gray-800 hover:text-[#82a3c4] transition-colors flex items-center" aria-label="Cart">
             <FiShoppingBag size={18} />
           </button>
           <span className="absolute -top-2 -right-2 text-[11px] font-medium text-gray-500">
             0
           </span>
-        </div>
       </div>
-
-    </nav>
+       </div>
+ </nav>
   );
 };
 
